@@ -12,15 +12,13 @@ const interestedPlayers = (users) => {
   if (validArgument(users)) {
     let keys = Object.keys(users);
     // console.log(keys)
+    let reg = /video games/gi;
     for (let i = 0; i < keys.length; i++) {
       let key = keys[i];
-      // console.log(key);
-      let userObj = users[key];
-      // console.log(userObj.interests)
-      let interest = userObj.interest;
-      // for(let j = 0; j<interest.length; j++){
-      //     if(interest[j]=="Video Games" || interest[j]=="Video Games")
-      // }
+      let interested = [];
+      if (users[key].hasOwnProperty("interests") == true)
+        if (reg.test(users[key]["interests"])?.[0]) interested.push(key);
+      return interested;
     }
   }
 };
@@ -73,7 +71,7 @@ const groupOfUsers = (users) => {
       else if (regJavascript.test(userObj.desgination))
         group["Javascript"].push(key);
     }
-    console.log(group)
+    console.log(group);
   } else console.log("Invalid arguement");
 };
 
