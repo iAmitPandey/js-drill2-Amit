@@ -1,5 +1,7 @@
 "use strict";
 
+import users from "./users.js";
+
 const validArgument = (users) => {
   if (users) return true;
 };
@@ -35,7 +37,23 @@ const nationality = (users) => {
         console.log(key);
       }
     }
-  }else console.log("Invalid arguement")
+  } else console.log("Invalid arguement");
 };
 
-export { interestedPlayers, nationality };
+// users with masters Degree
+
+const mastersDegree = (users) => {
+  if (validArgument(users)) {
+    let keys = Object.keys(users);
+    for (let i = 0; i < keys.length; i++) {
+        let key = keys[i];
+        let userObj = users[key];
+        if (userObj.qualification == "Masters") {
+          console.log(key);
+        }
+      }
+  } else console.log("Invalid arguement");
+};
+
+
+export { interestedPlayers, nationality, mastersDegree };
