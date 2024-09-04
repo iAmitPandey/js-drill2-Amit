@@ -46,14 +46,35 @@ const mastersDegree = (users) => {
   if (validArgument(users)) {
     let keys = Object.keys(users);
     for (let i = 0; i < keys.length; i++) {
-        let key = keys[i];
-        let userObj = users[key];
-        if (userObj.qualification == "Masters") {
-          console.log(key);
-        }
+      let key = keys[i];
+      let userObj = users[key];
+      if (userObj.qualification == "Masters") {
+        console.log(key);
       }
+    }
   } else console.log("Invalid arguement");
 };
 
+// Group users based on their Programming language mentioned in their designation.
 
-export { interestedPlayers, nationality, mastersDegree };
+const groupOfUsers = (users) => {
+  if (validArgument(users)) {
+    let keys = Object.keys(users);
+    let regPython = /python/i;
+    let regGolang = /golang/i;
+    let regJavascript = /javascript/i;
+    let group = { Python: [], Javascript: [], Golang: [], Others: [] };
+    for (let i = 0; i < keys.length; i++) {
+      let key = keys[i];
+      let userObj = users[key];
+      if (regPython.test(userObj.desgination)) {
+        group["Python"].push(key);
+      } else if (regGolang.test(userObj.desgination)) group["Golang"].push(key);
+      else if (regJavascript.test(userObj.desgination))
+        group["Javascript"].push(key);
+    }
+    console.log(group)
+  } else console.log("Invalid arguement");
+};
+
+export { interestedPlayers, nationality, mastersDegree, groupOfUsers };

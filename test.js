@@ -1,5 +1,5 @@
 import users from "./users.js";
-import { interestedPlayers, mastersDegree, nationality} from "./solutions.js";
+import { groupOfUsers, interestedPlayers, mastersDegree, nationality} from "./solutions.js";
 
 interestedPlayers(users);
 interestedPlayers({});
@@ -19,4 +19,11 @@ mastersDegree(users)
 mastersDegree({})
 mastersDegree(null)
 mastersDegree(undefined)
+
+// Group users based on their Programming language mentioned in their designation.
+
+groupOfUsers(users)
+groupOfUsers({})
+groupOfUsers(null)
+groupOfUsers(undefined)
 
